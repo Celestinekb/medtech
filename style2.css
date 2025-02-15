@@ -1064,3 +1064,115 @@
         max-width: 90%;
     }
 }
+
+/* Coursera Card Styling */
+.coursera-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Matches height of other cert cards */
+    border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+.coursera-content {
+    text-align: center;
+    padding: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.coursera-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-shadow: var(--neon-shadow);
+    transition: var(--transition);
+}
+
+.coursera-content p {
+    font-family: var(--text-font);
+    font-size: 1.2rem;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.coursera-content a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--light-gradient);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: var(--title-font);
+    font-size: 1rem;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.coursera-content a:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+    color: #fff;
+}
+
+/* Hover Effect for Coursera Card */
+.coursera-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 243, 255, 0.2);
+    border-color: rgba(0, 243, 255, 0.3);
+}
+
+.coursera-card:hover .coursera-icon {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .coursera-card {
+        min-height: 180px;
+    }
+
+    .coursera-icon {
+        font-size: 2.8rem;
+    }
+
+    .coursera-content p {
+        font-size: 1.1rem;
+    }
+
+    .coursera-content a {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .coursera-card {
+        min-height: 160px;
+    }
+
+    .coursera-icon {
+        font-size: 2.5rem;
+    }
+
+    .coursera-content p {
+        font-size: 1rem;
+    }
+
+    .coursera-content a {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
