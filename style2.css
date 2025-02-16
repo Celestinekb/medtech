@@ -45,7 +45,6 @@
             -webkit-background-clip: text;
             cursor: pointer;
             color: #fff;
-            text-align:center;
         }
 
         @keyframes glow {
