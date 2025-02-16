@@ -1,8 +1,9 @@
-// Quote Preloader Logic (Handled Entirely by JavaScript)
-document.addEventListener('DOMContentLoaded', function() {
-    // Prevent portfolio content from being visible initially
-    document.body.style.overflow = 'hidden';
-    
+// Quote Preloader Logic 
+(function() {
+    // Immediately hide all portfolio content
+    document.documentElement.style.visibility = 'hidden'; // Hide entire HTML content
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+
     // Create preloader container
     const quotePreloader = document.createElement('div');
     quotePreloader.id = 'quote-preloader';
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create quote text
     const quoteText = document.createElement('h1');
-    quoteText.textContent = "Technology and medicine, united by vision, can heal the world—one algorithm at a time.";
+    quoteText.textContent = "Healthy living starts with innovative thinking—where code meets care, possibilities are endless.";
     
     // Use portfolio's --text-font (Roboto Mono) via CSS custom property
     quoteText.style.fontFamily = 'var(--text-font, "Roboto Mono", monospace)'; // Fallback to Roboto Mono if --text-font is not defined
@@ -40,21 +41,21 @@ document.addEventListener('DOMContentLoaded', function() {
     quoteText.style.color = '#000000'; // Black text for contrast on white background
     quoteText.style.maxWidth = '800px';
     quoteText.style.margin = '0 auto';
-    quoteText.style.opacity = '1'; // Starts visible immediately, no animation delay
+    quoteText.style.opacity = '1'; // No animation, loads immediately
 
     // Define responsive adjustments
     const styleSheet = document.createElement('style');
     styleSheet.innerHTML = `
         @media (max-width: 1024px) {
             #quote-preloader h1 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
                 max-width: 700px;
             }
         }
 
         @media (max-width: 768px) {
             #quote-preloader h1 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 max-width: 90%;
             }
         }
@@ -66,8 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
     quotePreloader.appendChild(quotePreloaderContent);
     document.body.insertBefore(quotePreloader, document.body.firstChild);
 
-    // Hide preloader immediately after DOM content is loaded
-    window.addEventListener('load', function() {
+    // Ensure preloader is visible immediately
+    document.documentElement.style.visibility = 'visible'; // Show preloader immediately
+
+    // Hide preloader after exactly 3 seconds
+    setTimeout(function() {
         quotePreloader.style.opacity = '0';
         quotePreloader.style.visibility = 'hidden';
         quotePreloader.style.pointerEvents = 'none'; // Prevents interaction after hiding
@@ -75,5 +79,5 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             quotePreloader.remove(); // Remove preloader from DOM
         }, 500); // Match transition duration
-    });
-});
+    }, 4000); // Display for exactly 3 seconds
+})();
