@@ -32,13 +32,13 @@
 
     // Create quote text
     const quoteText = document.createElement('h1');
-    quoteText.textContent = "Healthy living starts with innovative thinking—where code meets care, possibilities are endless.";
+    quoteText.textContent = "Working to improve healthcare with machine learning and AI.";
     
     // Use portfolio's --text-font (Roboto Mono) via CSS custom property
     quoteText.style.fontFamily = 'var(--text-font, "Roboto Mono", monospace)'; // Fallback to Roboto Mono if --text-font is not defined
     quoteText.style.fontSize = '1.5rem'; // Matches typical body text size
     quoteText.style.lineHeight = '1.6';
-    quoteText.style.color = '#000000'; // Black text for contrast on white background
+    quoteText.style.color = '#00f3ff'; // primary color
     quoteText.style.maxWidth = '800px';
     quoteText.style.margin = '0 auto';
     quoteText.style.opacity = '1'; // No animation, loads immediately
@@ -79,5 +79,5 @@
         setTimeout(function() {
             quotePreloader.remove(); // Remove preloader from DOM
         }, 500); // Match transition duration
-    }, 4000); // Display for exactly 3 seconds
+    }, 3000); // Display for exactly 3 seconds
 })();
