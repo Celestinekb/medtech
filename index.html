@@ -237,6 +237,19 @@
     <footer class="footer">
         <p>&copy; 2025 CelestineKb MedTech. All rights reserved.</p>
     </footer>
+<script>
+    // Preloader Logic
+document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('preloader');
+    
+    // Hide preloader after 3 seconds or when content is loaded
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            preloader.classList.add('hidden');
+        }, 3000); // Adjust delay as needed (3000ms = 3 seconds)
+    });
+});
+</script>
     <script src="script.js"></script>
 
     <script src="script2.js"></script>
