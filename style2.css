@@ -41,24 +41,20 @@
        .logo-container {
     display: flex;
     align-items: center;
-    /* margin-right: auto; This pushes the logo to the left, keeping nav links on the right */
+    margin-right: auto; 
 }
 
 .logo {
-    width: 50px; /* Adjust as needed to fit with your design */
+    width: 50px;
     height: auto;
-    margin-right: 10px; /* Space between logo and text */
+    margin-right: 10px;
 }
 
 
-/* If you want the logo to be responsive */
+
 @media (max-width: 768px) {
     .logo {
         width: 50px; /* Smaller on mobile */
-    }
-    
-    .top-bar h1 {
-        font-size: 1.2em; /* Adjust text size for smaller screens */
     }
 }
             
