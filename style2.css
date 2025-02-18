@@ -24,40 +24,42 @@
             transition: background 0.3s ease;
         }
 
-        /* Navigation Styles */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            background: rgba(0, 0, 0, 0.8);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--primary-color);
-        }
+/* Navigation Styles */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--primary-color);
+}
 
-       .logo-container {
+.logo-container {
     display: flex;
     align-items: center;
-    margin-right: auto; 
+    margin: 0 auto; /* This will center the container itself within .top-bar */
 }
 
 .logo {
     width: 50px;
     height: auto;
-    margin-right: 10px;
+    margin: 0; /* Remove any margin to ensure it's centered within its container */
 }
-
-
 
 @media (max-width: 768px) {
     .logo {
-        width: 50px; /* Smaller on mobile */
+        width: 40px; /* Smaller on mobile */
+    }
+    .logo-container {
+        flex: 1; /* Allow the container to take up the full width if necessary */
+        justify-content: center; /* Center the logo within the container */
     }
 }
-            
+      
 
         .nav-links {
             display: flex;
