@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="thought.css">
     
+    <script src="script2.js" render></script>
+     <script src="aim.js" render></script>
+    
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCT9VMG10G"></script>
 <script>
@@ -78,85 +81,32 @@
         </div>
     </section>
 
-    <section id="thought-of-the-day" class="content-section">
-        <h2 class="section-title">Thought of the Day</h2>
-        <div class="thoughts-container">
-            <div class="thoughts-carousel">
-                <div class="thought-card active">
-                    <div class="thought-preview">
-                        <img src="images/thought/image2.jpg" alt="Futuristic AI and healthcare visualization" class="thought-image">
-                        <div class="catchy-content">
-                            <p class="catchy-text">AI Amplifies Progress—Thrive or Fade</p>
-                            <button class="more-btn">Expand</button>
-                        </div>
-                    </div>
-                    <div class="full-content" style="display: none;">
-                        <div class="content-wrapper">
-                            <h3 class="thought-heading">The AI Multiplier Effect: Doctors and Nations Over a Decade</h3>
-                            <p class="thought-text">
-                                AI doesn’t make you ten times better than others—it elevates you tenfold beyond your current self. Over 10 years (2025–2035), let’s explore its impact on doctors and nations.
-                            </p>
-                            <h4 class="thought-subheading">Doctors’ AI Transformation (2025–2035)</h4>
-                            <p class="thought-text">
-                                In 2025, two doctors start with these skills:
-                            </p>
-                            <ul class="thought-list">
-                                <li><strong>Dr. A (Beginner):</strong> Skill level 2/10, reaches 20/10 by 2035 with AI (10× boost).</li>
-                                <li><strong>Dr. B (Expert):</strong> Skill level 8/10, reaches 80/10 by 2035 with AI (10× boost).</li>
-                            </ul>
-                            <p class="thought-timeline">
-                                <strong>Gap Over 10 Years:</strong> In 2025, gap = 6. By 2035, gap = 60—a 900% increase, revealing AI’s exponential disparity.
-                            </p>
-                            <ul class="thought-scenarios">
-                                <li><strong>Both Use AI:</strong> Gap grows from 6 to 60, widening disparities dramatically.</li>
-                                <li><strong>Only Expert Uses AI:</strong> Dr. A stays at 2, Dr. B reaches 80. Gap surges to 78, leaving beginners behind.</li>
-                                <li><strong>Only Beginner Uses AI:</strong> Dr. A reaches 20, Dr. B stays at 8. Gap reverses to -12, surpassing the expert by 2035.</li>
-                            </ul>
-    
-                            <h4 class="thought-subheading">Nations’ AI Revolution (2025–2035)</h4>
-                            <p class="thought-text">
-                                In 2025, two nations begin with these progress levels:
-                            </p>
-                            <ul class="thought-list">
-                                <li><strong>Tanzania (Developing):</strong> Progress 3/10, reaches 30/10 by 2035 with AI (10× boost).</li>
-                                <li><strong>China (Developed):</strong> Progress 7/10, reaches 70/10 by 2035 with AI (10× boost).</li>
-                            </ul>
-                            <p class="thought-timeline">
-                                <strong>Gap Over 10 Years:</strong> In 2025, gap = 4. By 2035, gap = 40—a 900% increase, underscoring AI’s transformative power.
-                            </p>
-                            <ul class="thought-scenarios">
-                                <li><strong>Both Use AI:</strong> Gap grows from 4 to 40, amplifying global disparities.</li>
-                                <li><strong>Only China Uses AI:</strong> Tanzania stays at 3, China reaches 70. Gap explodes to 67, widening the divide.</li>
-                                <li><strong>Only Tanzania Uses AI:</strong> Tanzania reaches 30, China stays at 7. Gap reverses to -23, allowing Tanzania to overtake by 2035.</li>
-                            </ul>
-                            <p class="thought-text">
-                                Over a decade, AI multiplies progress exponentially—embrace it to thrive, ignore it to fade. It’s not just an advantage; it’s survival in the digital era.
-                            </p>
-                        </div>
-                    </div>
+    <section id="tech-multiplier" class="content-section">
+        <h2 class="section-title">Technological Multiplier Analyzer</h2>
+        <div class="calculator-container">
+            <div class="calculator-grid">
+                <div class="input-group">
+                    <label for="country1Search">Select Your Country:</label>
+                    <input type="text" id="country1Search" class="search-bar" placeholder="Search or select your country..." autocomplete="off">
+                    <select id="country1" class="country-select" size="5"></select>
                 </div>
-                <div class="thought-card">
-                    <div class="thought-preview">
-                        <img src="images/thought/image1 (1).jpg" alt="Innovative medical tech visualization" class="thought-image">
-                        <div class="catchy-content">
-                            <p class="catchy-text">Code Health, Shape Futures</p>
-                            <button class="more-btn">Expand</button>
-                        </div>
-                    </div>
-                    <div class="full-content" style="display: none;">
-                        <div class="content-wrapper">
-                            <p class="thought-text">
-                                Healthy living begins with data—over the next decade, AI and computer vision will transform wellness, closing gaps or widening them based on adoption.
-                            </p>
-                        </div>
-                    </div>
+                <div class="input-group">
+                    <label for="country2Search">Select Reference Country:</label>
+                    <input type="text" id="country2Search" class="search-bar" placeholder="Search or select reference country..." autocomplete="off">
+                    <select id="country2" class="country-select" size="5"></select>
                 </div>
-                <!-- more thought cards -->
+                <div class="input-group full-width">
+                    <label for="years">Years to Analyze (1–100):</label>
+                    <input type="number" id="years" min="1" max="100" value="10" class="year-input">
+                </div>
+                <button id="calculateBtn" class="calc-btn">Analyze</button>
+            </div>
+            <div id="result" class="calculator-result">
+                <p class="result-text">Enter countries and years to analyze technological gaps...</p>
             </div>
         </div>
     </section>
-
-
+   
 
     <section id="skills" class="content-section">
         <h2>Skills</h2>
@@ -317,7 +267,5 @@
         <p>&copy; 2025 CelestineKb MedTech. All rights reserved.</p>
     </footer>
    
-    <script src="script2.js"></script>
-    <script src="thought.js"></script>
 </body>
 </html>
