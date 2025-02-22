@@ -1,0 +1,381 @@
+/* Thought of the Day Section */
+#thought-of-the-day {
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 5%;
+    background: linear-gradient(45deg, #000000, #1a1a1a); /* Matches --dark-gradient */
+    isolation: isolate; /* Ensures z-index layering */
+}
+
+.section-title {
+    font-family: var(--fun-font); /* Press Start 2P */
+    font-size: 3rem;
+    background: linear-gradient(45deg, #00f3ff, #00ff88); /* Matches --light-gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 25px #00f3ff, 0 0 40px #00f3ff, 0 0 50px rgba(0, 243, 255, 0.9);
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: neonPulse 2.5s infinite alternate;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+@keyframes neonPulse {
+    0% { text-shadow: 0 0 20px #00f3ff, 0 0 30px #00f3ff, 0 0 40px rgba(0, 243, 255, 0.7); }
+    100% { text-shadow: 0 0 25px #00f3ff, 0 0 50px #00f3ff, 0 0 60px rgba(0, 243, 255, 0.95); }
+}
+
+.thoughts-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.thoughts-carousel {
+    display: flex;
+    gap: 3rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 2rem 0;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(0, 243, 255, 0.7) transparent; /* Enhanced scrollbar */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
+
+.thoughts-carousel::-webkit-scrollbar {
+    height: 12px;
+}
+
+.thoughts-carousel::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 6px;
+}
+
+.thoughts-carousel::-webkit-scrollbar-thumb {
+    background: rgba(0, 243, 255, 0.7);
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0, 243, 255, 0.4);
+    transition: background 0.3s ease;
+}
+
+.thoughts-carousel::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 243, 255, 0.9);
+}
+
+.thought-card {
+    flex: 0 0 auto;
+    width: 400px;
+    min-height: 500px;
+    background: rgba(26, 26, 26, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 243, 255, 0.4);
+    backdrop-filter: blur(25px);
+    border: 3px solid rgba(0, 243, 255, 0.5);
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    will-change: transform, box-shadow; /* Optimize animations */
+}
+
+.thought-card.active {
+    transform: scale(1.15);
+    box-shadow: 0 30px 70px rgba(0, 243, 255, 0.7), 0 0 50px rgba(0, 243, 255, 0.6);
+    border-color: rgba(0, 243, 255, 0.7);
+    z-index: 3;
+}
+
+.thought-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 28px 65px rgba(0, 243, 255, 0.6), 0 0 45px rgba(0, 243, 255, 0.5);
+    border-color: rgba(0, 243, 255, 0.6);
+}
+
+.thought-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    filter: brightness(0.9) contrast(1.2) saturate(1.1);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.thought-card:hover .thought-image {
+    filter: brightness(1.1) contrast(1.3) saturate(1.2);
+    transform: scale(1.05);
+}
+
+.thought-preview {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    flex-grow: 0;
+    z-index: 2;
+}
+
+.catchy-content {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.4), 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: -25px; /* Slight overlap for depth */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.thought-card:hover .catchy-content {
+    box-shadow: inset 0 0 25px rgba(0, 243, 255, 0.5), 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+.catchy-text {
+    font-family: var(--text-font); /* Roboto Mono */
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 243, 255, 0.5);
+    margin: 1.5rem 0 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    animation: slideUp 1.5s ease-in-out;
+    word-break: break-word;
+}
+
+.more-btn {
+    background: linear-gradient(45deg, #00f3ff, #00ff88);
+    color: #ffffff;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: var(--title-font); /* Righteous */
+    font-size: 1.3rem;
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 243, 255, 0.4);
+    display: block;
+    margin: 1.8rem auto 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    outline: none;
+}
+
+.more-btn:hover, .more-btn:focus {
+    background: linear-gradient(45deg, #00ff88, #00f3ff);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.7), 0 0 25px rgba(0, 243, 255, 0.6);
+    color: #ffffff;
+    outline: none;
+}
+
+.full-content {
+    padding: 2.5rem;
+    display: none;
+    background: rgba(26, 26, 26, 0.98);
+    border-top: 3px solid rgba(0, 243, 255, 0.5);
+    border-radius: 0 0 30px 30px;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 65%;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(0, 243, 255, 0.6) transparent; /* Custom scrollbar */
+}
+
+.full-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.full-content::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+.full-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 243, 255, 0.6);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 243, 255, 0.3);
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.thought-heading {
+    font-family: var(--fun-font); /* Press Start 2P */
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #00f3ff, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 25px #00f3ff, 0 0 40px #00f3ff, 0 0 50px rgba(0, 243, 255, 0.9);
+    margin-bottom: 2rem;
+    animation: neonPulse 2.5s infinite alternate;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.thought-subheading {
+    font-family: var(--title-font); /* Righteous */
+    font-size: 1.8rem;
+    color: rgba(0, 243, 255, 0.98);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 243, 255, 0.5);
+    margin: 2rem 0 1.2rem;
+    animation: slideUp 1.5s ease-in-out 0.3s;
+    line-height: 1.4;
+}
+
+.thought-text {
+    font-family: var(--text-font); /* Roboto Mono */
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1.5s ease-in-out;
+    word-wrap: break-word;
+}
+
+.thought-timeline {
+    font-family: var(--text-font); /* Roboto Mono */
+    font-size: 1.4rem;
+    color: rgba(0, 243, 255, 0.98);
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7), 0 0 8px rgba(0, 243, 255, 0.5);
+    margin: 2rem 0 1.5rem;
+    font-weight: 600;
+    animation: slideUp 1.5s ease-in-out 0.6s;
+    line-height: 1.6;
+}
+
+.thought-scenarios {
+    list-style: none;
+    padding-left: 1.8rem;
+    margin: 1.5rem 0;
+}
+
+.thought-scenarios li {
+    font-family: var(--text-font); /* Roboto Mono */
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.98);
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+}
+
+.thought-scenarios li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color); /* Green #00ff88 */
+    font-size: 1.3rem;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.7), 0 0 20px rgba(0, 255, 136, 0.5);
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.thought-scenarios li:hover::before {
+    color: var(--primary-color); /* Cyan #00f3ff */
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.8), 0 0 25px rgba(0, 243, 255, 0.6);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(25px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(35px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    #thought-of-the-day {
+        padding: 7rem 4%;
+        min-height: 50vh;
+    }
+
+    .thought-card {
+        width: 350px;
+        min-height: 450px;
+    }
+
+    .thought-image {
+        height: 220px;
+    }
+
+    .catchy-text {
+        font-size: 1.6rem;
+    }
+
+    .more-btn {
+        font-size: 1.1rem;
+        padding: 1rem 2.2rem;
+    }
+
+    .thought-heading {
+        font-size: 2.2rem;
+    }
+
+    .thought-subheading {
+        font-size: 1.6rem;
+    }
+
+    .thought-text, .thought-timeline, .thought-scenarios li {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #thought-of-the-day {
+        padding: 6rem 3%;
+        min-height: 40vh;
+    }
+
+    .thoughts-carousel {
+        gap: 2rem;
+    }
+
+    .thought-card {
+        width: 300px;
+        min-height: 400px;
+    }
+
+    .thought-image {
+        height: 180px;
+    }
+
+    .catchy-text {
+        font-size: 1.4rem;
+    }
+
+    .more-btn {
+        font-size: 1rem;
+        padding: 0.9rem 2rem;
+    }
+
+    .thought-heading {
+        font-size: 2rem;
+    }
+
+    .thought-subheading {
+        font-size: 1.4rem;
+    }
+
+    .thought-text, .thought-timeline, .thought-scenarios li {
+        font-size: 1.1rem;
+    }
+}
