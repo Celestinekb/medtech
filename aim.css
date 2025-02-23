@@ -2,7 +2,7 @@
 #tech-multiplier {
     position: relative;
     overflow: hidden;
-    min-height: 10vh;
+    min-height: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
