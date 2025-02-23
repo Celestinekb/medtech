@@ -1,34 +1,34 @@
-/* Default styles for mobile-first approach */
+/* Mobile-first default styles */
 #tech-multiplier {
     position: relative;
     overflow: hidden;
-    min-height: 100vh; /* Use full viewport height */
+    min-height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem 2%; /* Reduced padding for compactness */
+    padding: 1.5rem 2%; /* Tighter padding for compactness */
     background: linear-gradient(45deg, #000000, #1a1a1a);
     isolation: isolate;
 }
 
 .section-title {
     font-family: var(--fun-font); /* Press Start 2P */
-    font-size: 1.8rem; /* Smaller title for mobile */
+    font-size: 2rem; /* Slightly larger for impact, still fits mobile */
     background: linear-gradient(45deg, #00f3ff, #00ff88);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 15px #00f3ff, 0 0 25px #00f3ff, 0 0 30px rgba(0, 243, 255, 0.9);
     text-align: center;
-    margin-bottom: 1.5rem; /* Reduced margin */
+    margin-bottom: 1rem; /* Reduced margin */
     animation: neonPulse 2.5s infinite alternate;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 400;
 }
 
 @keyframes neonPulse {
-    0% { text-shadow: 0 0 15px #00f3ff, 0 0 20px #00f3ff, 0 0 25px rgba(0, 243, 255, 0.7); }
-    100% { text-shadow: 0 0 20px #00f3ff, 0 0 30px #00f3ff, 0 0 40px rgba(0, 243, 255, 0.9); }
+    0% { text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 25px rgba(0, 243, 255, 0.7); }
+    100% { text-shadow: 0 0 15px #00f3ff, 0 0 30px #00f3ff, 0 0 35px rgba(0, 243, 255, 0.9); }
 }
 
 .calculator-container {
@@ -37,32 +37,32 @@
     margin: 0 auto;
     position: relative;
     background: rgba(26, 26, 26, 0.95);
-    border-radius: 15px; /* Smaller radius for mobile */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 243, 255, 0.3);
+    border-radius: 20px; /* Slightly larger radius for modern look */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 243, 255, 0.3);
     backdrop-filter: blur(15px);
     border: 2px solid rgba(0, 243, 255, 0.4);
-    padding: 1.5rem 1rem; /* Reduced padding */
+    padding: 1.2rem 1rem; /* Slightly increased for better spacing */
     transition: all 0.5s ease;
-    max-height: 650px; /* Limit height to fit most mobile screens */
+    max-height: 600px; /* Tighter height to fit most mobile screens */
     overflow-y: hidden; /* Prevent scrolling within container */
 }
 
 .calculator-container:hover {
-    box-shadow: 0 15px 30px rgba(0, 243, 255, 0.6), 0 0 20px rgba(0, 243, 255, 0.5);
+    box-shadow: 0 12px 25px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.4);
     border-color: rgba(0, 243, 255, 0.6);
 }
 
 .calculator-grid {
     display: flex;
-    flex-direction: column; /* Stack vertically for mobile */
-    gap: 1rem; /* Reduced gap */
-    margin-bottom: 1rem; /* Reduced margin */
+    flex-direction: column; /* Vertical stack for mobile */
+    gap: 0.8rem; /* Tighter gap for better flow */
+    margin-bottom: 0.8rem; /* Reduced margin */
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* Reduced gap */
+    gap: 0.4rem; /* Tighter gap */
 }
 
 .input-group.full-width {
@@ -74,28 +74,28 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem; /* Reduced gap */
+    gap: 0.3rem;
 }
 
 .search-bar, .country-select {
     width: 100%;
-    padding: 0.8rem 1.2rem; /* Reduced padding */
+    padding: 0.9rem 1.2rem; /* Balanced padding for touch usability */
     font-family: var(--text-font); /* Roboto Mono */
-    font-size: 1rem; /* Smaller font for mobile */
+    font-size: 1.1rem; /* Slightly larger for readability */
     color: rgba(255, 255, 255, 0.98);
     background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(0, 243, 255, 0.3); /* Thinner border */
-    border-radius: 15px; /* Smaller radius */
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 8px rgba(0, 243, 255, 0.2);
     transition: all 0.3s ease;
     outline: none;
-    height: 40px; /* Fixed smaller height */
+    height: 45px; /* Consistent height for inputs */
 }
 
 .search-bar:focus, .country-select:focus {
     border-color: rgba(0, 243, 255, 0.6);
     box-shadow: 0 6px 15px rgba(0, 243, 255, 0.3), 0 0 12px rgba(0, 243, 255, 0.3);
-    transform: translateY(-1px); /* Smaller lift on focus */
+    transform: translateY(-2px);
 }
 
 .country-select {
@@ -106,72 +106,73 @@
     background-size: 1rem;
 }
 
-/* Ensure dropdown options are compact */
+/* Dropdown options */
 .country-select option {
     background: rgba(26, 26, 26, 0.95);
     color: rgba(255, 255, 255, 0.98);
     padding: 0.8rem 1.2rem;
     border-bottom: 1px solid rgba(0, 243, 255, 0.1);
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 label {
     font-family: var(--title-font); /* Righteous */
-    font-size: 1rem; /* Smaller label text */
-    color: rgba(0, 243, 255, 0.8);
+    font-size: 1.1rem; /* Balanced size for labels */
+    color: rgba(0, 243, 255, 0.9);
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
-    margin-bottom: 0.3rem; /* Reduced margin */
+    margin-bottom: 0.2rem; /* Tighter margin */
 }
 
 .calc-btn {
     background: linear-gradient(45deg, #00f3ff, #00ff88);
     color: #ffffff;
     border: none;
-    padding: 0.8rem 1.5rem; /* Reduced padding */
-    border-radius: 20px; /* Smaller radius */
+    padding: 0.9rem 1.8rem; /* Balanced padding for touch */
+    border-radius: 25px; /* Larger radius for modern look */
     cursor: pointer;
     font-family: var(--title-font); /* Righteous */
-    font-size: 1.1rem; /* Smaller button text */
+    font-size: 1.2rem; /* Slightly larger for emphasis */
     transition: all 0.5s ease;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 243, 255, 0.3);
-    margin: 1rem auto 0; /* Reduced margin */
+    margin: 0.8rem auto 0; /* Tighter margin */
     text-transform: uppercase;
-    letter-spacing: 1px; /* Reduced letter spacing */
+    letter-spacing: 1px;
     outline: none;
+    width: 100%; /* Full width for mobile */
 }
 
 .calc-btn:hover, .calc-btn:focus {
     background: linear-gradient(45deg, #00ff88, #00f3ff);
-    transform: translateY(-4px); /* Smaller lift on hover */
+    transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(0, 255, 136, 0.6), 0 0 20px rgba(0, 243, 255, 0.5);
     color: #ffffff;
     outline: none;
 }
 
 .calculator-result {
-    margin-top: 1rem; /* Reduced margin */
-    padding: 1rem 0.8rem; /* Reduced padding */
+    margin-top: 0.8rem; /* Tighter margin */
+    padding: 0.8rem 0.8rem; /* Reduced padding */
     background: rgba(26, 26, 26, 0.9);
-    border-radius: 15px; /* Smaller radius */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 243, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 243, 255, 0.2);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 243, 255, 0.3); /* Thinner border */
+    border: 1px solid rgba(0, 243, 255, 0.3);
     transition: all 0.5s ease;
     text-align: left;
-    max-height: 200px; /* Limit result height to prevent overflow */
+    max-height: 150px; /* Smaller result area to prevent overflow */
     overflow-y: auto; /* Allow scrolling within results if text is long */
 }
 
 .calculator-result:hover {
-    box-shadow: 0 12px 25px rgba(0, 243, 255, 0.4), 0 0 15px rgba(0, 243, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 243, 255, 0.4), 0 0 15px rgba(0, 243, 255, 0.3);
 }
 
 .result-text {
     font-family: var(--text-font); /* Roboto Mono */
-    font-size: 0.9rem; /* Smaller text for mobile */
+    font-size: 1rem; /* Readable size for mobile */
     color: rgba(255, 255, 255, 0.98);
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-    line-height: 1.4; /* Tighter line height */
+    line-height: 1.5; /* Balanced line height */
     animation: fadeIn 1.5s ease-in-out;
     word-wrap: break-word;
     word-break: break-word;
@@ -179,27 +180,27 @@ label {
 
 .result-heading {
     font-family: var(--title-font); /* Righteous */
-    font-size: 1.2rem; /* Smaller heading */
+    font-size: 1.3rem; /* Slightly larger for emphasis */
     color: rgba(0, 243, 255, 0.9);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 243, 255, 0.4);
-    margin-bottom: 0.8rem; /* Reduced margin */
+    margin-bottom: 0.6rem; /* Tighter margin */
     line-height: 1.2;
 }
 
 .result-list {
     list-style: none;
-    padding-left: 1rem; /* Reduced padding */
-    margin: 0.8rem 0; /* Reduced margin */
+    padding-left: 0.8rem; /* Reduced padding */
+    margin: 0.6rem 0; /* Tighter margin */
 }
 
 .result-list li {
     font-family: var(--text-font); /* Roboto Mono */
-    font-size: 0.9rem; /* Smaller text */
-    line-height: 1.4; /* Tighter line height */
+    font-size: 1rem; /* Readable size */
+    line-height: 1.5; /* Balanced line height */
     color: rgba(255, 255, 255, 0.98);
     position: relative;
-    padding-left: 0.8rem; /* Reduced padding */
-    margin-bottom: 0.6rem; /* Reduced margin */
+    padding-left: 0.6rem; /* Reduced padding */
+    margin-bottom: 0.4rem; /* Tighter margin */
     word-wrap: break-word;
     word-break: break-word;
 }
@@ -209,7 +210,7 @@ label {
     position: absolute;
     left: 0;
     color: rgba(0, 243, 255, 0.8);
-    font-size: 0.8rem; /* Smaller icon */
+    font-size: 0.9rem; /* Slightly larger icon for visibility */
     text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
     transition: color 0.5s ease;
 }
@@ -220,13 +221,12 @@ label {
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(15px); }
+    0% { opacity: 0; transform: translateY(10px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Remove or adjust larger screen media queries if not needed */
+/* Optional: Larger screens (desktop/tablet) */
 @media (min-width: 481px) {
-    /* Add desktop/tablet styles here if needed, but keep mobile as default */
     #tech-multiplier {
         padding: 4rem 5%;
     }
