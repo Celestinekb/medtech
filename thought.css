@@ -1,0 +1,136 @@
+/* Section styling with a futuristic gradient background */
+.content-section1 {
+    background: linear-gradient(135deg, #1a1a1a, #000000);
+    padding: 50px 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container to center content and limit width */
+.section-container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Title with a neon glow effect */
+.section-title1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+}
+
+/* Container for carousel and controls */
+.thoughts-container {
+    position: relative;
+}
+
+/* Carousel layout with smooth transitions */
+.thoughts-carousel {
+    display: flex;
+    overflow-x: hidden;
+    gap: 20px;
+    transition: transform 0.5s ease;
+}
+
+/* Individual thought card styling */
+.thought-card {
+    flex: 0 0 300px;
+    background: #2a2a2a;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for cards */
+.thought-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Image styling within cards */
+.thought-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Content area within cards */
+.catchy-content {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Catchy text with neon color */
+.catchy-text {
+    font-size: 1.5rem;
+    color: #00f3ff;
+    margin-bottom: 10px;
+}
+
+/* Teaser text styling */
+.teaser-text {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Learn More button styling */
+.learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00f3ff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Learn More button */
+.learn-more-btn:hover {
+    background: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Navigation controls */
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 40px;
+}
+
+/* Button styling */
+.prev-btn, .next-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #00f3ff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Button hover effect */
+.prev-btn:hover, .next-btn:hover {
+    color: #ffffff;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .thoughts-carousel {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+    .thought-card {
+        flex: 0 0 80vw;
+        scroll-snap-align: center;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}
