@@ -162,9 +162,7 @@
         <h2 class="section-title">Technological Multiplier Analyzer</h2>
         <div class="calculator-container">
             <div class="calculator-grid">
-<div id="result" class="calculator-result">
-                <p class="result-text">Enter countries and years to analyze technological gaps...</p>
-            </div>
+
                 <div class="input-group">
                     <label for="country1Search">Select Your Country:</label>
                     <input type="text" id="country1Search" class="search-bar" placeholder="Search or select your country..." autocomplete="off">
@@ -177,12 +175,15 @@
                 </div>
                 <div class="input-group full-width">
                     <label for="years">Years to Analyze (1–100):</label>
-                    <input type="number" id="years" min="1" max="100" value="10" class="year-input">
+                    <input type="number" id="years" min="1" max="1000" value="10" class="year-input">
                 </div>
                 <button id="calculateBtn" class="calc-btn">Analyze</button>
             </div>
             
         </div>
+<div id="result" class="calculator-result">
+                <p class="result-text">Enter countries and years to analyze technological gaps...</p>
+            </div>
     </section>
 
     <section id="timeline" class="content-section">
