@@ -1,70 +1,72 @@
-/* Technological Multiplier Analyzer Section */
+/* Default styles for mobile-first approach */
 #tech-multiplier {
     position: relative;
     overflow: hidden;
-    min-height: 5vh;
+    min-height: 100vh; /* Use full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6rem 5%;
-    background: linear-gradient(45deg, #000000, #1a1a1a); /* Matches --dark-gradient */
-    isolation: isolate; /* Ensures z-index layering */
+    padding: 2rem 2%; /* Reduced padding for compactness */
+    background: linear-gradient(45deg, #000000, #1a1a1a);
+    isolation: isolate;
 }
 
 .section-title {
     font-family: var(--fun-font); /* Press Start 2P */
-    font-size: 2.8rem;
-    background: linear-gradient(45deg, #00f3ff, #00ff88); /* Matches --light-gradient */
+    font-size: 1.8rem; /* Smaller title for mobile */
+    background: linear-gradient(45deg, #00f3ff, #00ff88);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 25px #00f3ff, 0 0 40px #00f3ff, 0 0 50px rgba(0, 243, 255, 0.95);
+    text-shadow: 0 0 15px #00f3ff, 0 0 25px #00f3ff, 0 0 30px rgba(0, 243, 255, 0.9);
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem; /* Reduced margin */
     animation: neonPulse 2.5s infinite alternate;
-    line-height: 1.2;
+    line-height: 1;
     font-weight: 400;
 }
 
 @keyframes neonPulse {
-    0% { text-shadow: 0 0 20px #00f3ff, 0 0 30px #00f3ff, 0 0 40px rgba(0, 243, 255, 0.8); }
-    100% { text-shadow: 0 0 25px #00f3ff, 0 0 50px #00f3ff, 0 0 60px rgba(0, 243, 255, 0.98); }
+    0% { text-shadow: 0 0 15px #00f3ff, 0 0 20px #00f3ff, 0 0 25px rgba(0, 243, 255, 0.7); }
+    100% { text-shadow: 0 0 20px #00f3ff, 0 0 30px #00f3ff, 0 0 40px rgba(0, 243, 255, 0.9); }
 }
 
 .calculator-container {
     width: 100%;
-    max-width: 900px; /* Reduced size for compactness */
+    max-width: 100%; /* Full width on mobile */
     margin: 0 auto;
     position: relative;
     background: rgba(26, 26, 26, 0.95);
-    border-radius: 30px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 243, 255, 0.4);
-    backdrop-filter: blur(25px);
-    border: 3px solid rgba(0, 243, 255, 0.5);
-    padding: 3rem 2.5rem; /* Adjusted padding for better right alignment */
+    border-radius: 15px; /* Smaller radius for mobile */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 243, 255, 0.3);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 243, 255, 0.4);
+    padding: 1.5rem 1rem; /* Reduced padding */
     transition: all 0.5s ease;
+    max-height: 650px; /* Limit height to fit most mobile screens */
+    overflow-y: hidden; /* Prevent scrolling within container */
 }
 
 .calculator-container:hover {
-    box-shadow: 0 30px 60px rgba(0, 243, 255, 0.7), 0 0 40px rgba(0, 243, 255, 0.6);
-    border-color: rgba(0, 243, 255, 0.7);
+    box-shadow: 0 15px 30px rgba(0, 243, 255, 0.6), 0 0 20px rgba(0, 243, 255, 0.5);
+    border-color: rgba(0, 243, 255, 0.6);
 }
 
 .calculator-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column; /* Stack vertically for mobile */
+    gap: 1rem; /* Reduced gap */
+    margin-bottom: 1rem; /* Reduced margin */
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.5rem; /* Reduced gap */
 }
 
 .input-group.full-width {
-    grid-column: span 1;
+    width: 100%;
 }
 
 .search-dropdown-wrapper {
@@ -72,181 +74,104 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.3rem; /* Reduced gap */
 }
 
-.search-bar {
+.search-bar, .country-select {
     width: 100%;
-    padding: 1.2rem 2.5rem;
+    padding: 0.8rem 1.2rem; /* Reduced padding */
     font-family: var(--text-font); /* Roboto Mono */
-    font-size: 1.3rem;
+    font-size: 1rem; /* Smaller font for mobile */
     color: rgba(255, 255, 255, 0.98);
     background: rgba(255, 255, 255, 0.12);
-    border: 2px solid rgba(0, 243, 255, 0.4);
-    border-radius: 25px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 243, 255, 0.3);
+    border: 1px solid rgba(0, 243, 255, 0.3); /* Thinner border */
+    border-radius: 15px; /* Smaller radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 8px rgba(0, 243, 255, 0.2);
     transition: all 0.3s ease;
     outline: none;
+    height: 40px; /* Fixed smaller height */
 }
 
-.search-bar:focus {
-    border-color: rgba(0, 243, 255, 0.7);
-    box-shadow: 0 10px 25px rgba(0, 243, 255, 0.4), 0 0 18px rgba(0, 243, 255, 0.4);
-    transform: translateY(-2px);
+.search-bar:focus, .country-select:focus {
+    border-color: rgba(0, 243, 255, 0.6);
+    box-shadow: 0 6px 15px rgba(0, 243, 255, 0.3), 0 0 12px rgba(0, 243, 255, 0.3);
+    transform: translateY(-1px); /* Smaller lift on focus */
 }
 
 .country-select {
-    padding: 1.2rem 2.5rem;
-    font-family: var(--text-font); /* Roboto Mono */
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.98);
-    background: rgba(255, 255, 255, 0.12);
-    border: 2px solid rgba(0, 243, 255, 0.4);
-    border-radius: 25px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 243, 255, 0.3);
-    transition: all 0.3s ease;
-    outline: none;
-    width: 100%;
-    appearance: none; /* Remove default dropdown arrow */
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%2300f3ff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1.5rem;
-    height: 60px; /* Fixed height for consistency */
-}
-
-/* Ensure dropdown opens downward */
-.country-select::-ms-expand {
-    display: none; /* For IE/Edge */
-}
-
-.country-select {
-    -moz-appearance: none; /* Firefox */
-    -webkit-appearance: none; /* Safari/Chrome */
     appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%2300f3ff" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1rem;
 }
 
-.country-select[open] {
-    border-radius: 25px 25px 0 0; /* Keep top rounded, open downward */
-}
-
+/* Ensure dropdown options are compact */
 .country-select option {
     background: rgba(26, 26, 26, 0.95);
     color: rgba(255, 255, 255, 0.98);
-    padding: 1.2rem 2.5rem;
-    border-bottom: 1px solid rgba(0, 243, 255, 0.2); /* Separator for options */
-}
-
-/* Highlight selected or matching option in dropdown */
-.country-select option:checked, .country-select option:hover {
-    background: rgba(0, 243, 255, 0.15);
-    color: #ffffff;
-}
-
-.country-select:focus {
-    border-color: rgba(0, 243, 255, 0.7);
-    box-shadow: 0 10px 25px rgba(0, 243, 255, 0.4), 0 0 18px rgba(0, 243, 255, 0.4);
-    transform: translateY(-2px);
-}
-
-/* Expand dropdown when searching */
-.country-select[size="1"]:focus {
-    size: 10; /* Expand to show options when focused */
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+    font-size: 1rem;
 }
 
 label {
     font-family: var(--title-font); /* Righteous */
-    font-size: 1.4rem;
-    color: rgba(0, 243, 255, 0.9);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-    margin-bottom: 0.5rem;
-}
-
-.year-input-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.year-input {
-    padding: 1.2rem 2.5rem;
-    font-family: var(--text-font); /* Roboto Mono */
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.98);
-    background: rgba(255, 255, 255, 0.12);
-    border: 2px solid rgba(0, 243, 255, 0.4);
-    border-radius: 25px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 243, 255, 0.3);
-    transition: all 0.3s ease;
-    outline: none;
-    width: 100%;
-    appearance: none; /* Remove default number input arrows */
-}
-
-.year-input:focus {
-    border-color: rgba(0, 243, 255, 0.7);
-    box-shadow: 0 10px 25px rgba(0, 243, 255, 0.4), 0 0 18px rgba(0, 243, 255, 0.4);
-    transform: translateY(-2px);
-}
-
-.year-input::-webkit-inner-spin-button,
-.year-input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.year-input[type=number] {
-    -moz-appearance: textfield;
+    font-size: 1rem; /* Smaller label text */
+    color: rgba(0, 243, 255, 0.8);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+    margin-bottom: 0.3rem; /* Reduced margin */
 }
 
 .calc-btn {
     background: linear-gradient(45deg, #00f3ff, #00ff88);
     color: #ffffff;
     border: none;
-    padding: 1.5rem 3.5rem;
-    border-radius: 40px;
+    padding: 0.8rem 1.5rem; /* Reduced padding */
+    border-radius: 20px; /* Smaller radius */
     cursor: pointer;
     font-family: var(--title-font); /* Righteous */
-    font-size: 1.5rem;
+    font-size: 1.1rem; /* Smaller button text */
     transition: all 0.5s ease;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 243, 255, 0.4);
-    display: block;
-    margin: 2rem auto 0;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 243, 255, 0.3);
+    margin: 1rem auto 0; /* Reduced margin */
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px; /* Reduced letter spacing */
     outline: none;
-    grid-column: span 1; /* Adjusted for compactness */
 }
 
 .calc-btn:hover, .calc-btn:focus {
     background: linear-gradient(45deg, #00ff88, #00f3ff);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 255, 136, 0.7), 0 0 35px rgba(0, 243, 255, 0.6);
+    transform: translateY(-4px); /* Smaller lift on hover */
+    box-shadow: 0 10px 20px rgba(0, 255, 136, 0.6), 0 0 20px rgba(0, 243, 255, 0.5);
     color: #ffffff;
     outline: none;
 }
 
 .calculator-result {
-    margin-top: 2.5rem;
-    padding: 2.5rem 2rem;
+    margin-top: 1rem; /* Reduced margin */
+    padding: 1rem 0.8rem; /* Reduced padding */
     background: rgba(26, 26, 26, 0.9);
-    border-radius: 25px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 243, 255, 0.3);
-    backdrop-filter: blur(20px);
-    border: 2px solid rgba(0, 243, 255, 0.4);
+    border-radius: 15px; /* Smaller radius */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 243, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 243, 255, 0.3); /* Thinner border */
     transition: all 0.5s ease;
     text-align: left;
+    max-height: 200px; /* Limit result height to prevent overflow */
+    overflow-y: auto; /* Allow scrolling within results if text is long */
 }
 
 .calculator-result:hover {
-    box-shadow: 0 20px 45px rgba(0, 243, 255, 0.5), 0 0 25px rgba(0, 243, 255, 0.4);
+    box-shadow: 0 12px 25px rgba(0, 243, 255, 0.4), 0 0 15px rgba(0, 243, 255, 0.3);
 }
 
 .result-text {
     font-family: var(--text-font); /* Roboto Mono */
-    font-size: 1.5rem;
+    font-size: 0.9rem; /* Smaller text for mobile */
     color: rgba(255, 255, 255, 0.98);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-    line-height: 2;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    line-height: 1.4; /* Tighter line height */
     animation: fadeIn 1.5s ease-in-out;
     word-wrap: break-word;
     word-break: break-word;
@@ -254,27 +179,27 @@ label {
 
 .result-heading {
     font-family: var(--title-font); /* Righteous */
-    font-size: 1.8rem;
-    color: rgba(0, 243, 255, 0.98);
-    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 243, 255, 0.5);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
+    font-size: 1.2rem; /* Smaller heading */
+    color: rgba(0, 243, 255, 0.9);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 243, 255, 0.4);
+    margin-bottom: 0.8rem; /* Reduced margin */
+    line-height: 1.2;
 }
 
 .result-list {
     list-style: none;
-    padding-left: 1.5rem;
-    margin: 1.2rem 0;
+    padding-left: 1rem; /* Reduced padding */
+    margin: 0.8rem 0; /* Reduced margin */
 }
 
 .result-list li {
     font-family: var(--text-font); /* Roboto Mono */
-    font-size: 1.4rem;
-    line-height: 2;
+    font-size: 0.9rem; /* Smaller text */
+    line-height: 1.4; /* Tighter line height */
     color: rgba(255, 255, 255, 0.98);
     position: relative;
-    padding-left: 1.2rem;
-    margin-bottom: 1rem;
+    padding-left: 0.8rem; /* Reduced padding */
+    margin-bottom: 0.6rem; /* Reduced margin */
     word-wrap: break-word;
     word-break: break-word;
 }
@@ -283,26 +208,27 @@ label {
     content: '⚡';
     position: absolute;
     left: 0;
-    color: rgba(0, 243, 255, 0.9);
-    font-size: 1.2rem;
-    text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+    color: rgba(0, 243, 255, 0.8);
+    font-size: 0.8rem; /* Smaller icon */
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
     transition: color 0.5s ease;
 }
 
 .result-list li:hover::before {
-    color: rgba(0, 255, 136, 0.9);
-    text-shadow: 0 0 12px rgba(0, 255, 136, 0.7);
+    color: rgba(0, 255, 136, 0.8);
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(25px); }
+    0% { opacity: 0; transform: translateY(15px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive adjustments for all devices */
-@media (min-width: 1025px) {
+/* Remove or adjust larger screen media queries if not needed */
+@media (min-width: 481px) {
+    /* Add desktop/tablet styles here if needed, but keep mobile as default */
     #tech-multiplier {
-        padding: 6rem 5%;
+        padding: 4rem 5%;
     }
 
     .calculator-container {
@@ -317,124 +243,5 @@ label {
 
     .calc-btn {
         grid-column: span 2;
-    }
-}
-
-@media (max-width: 1024px) {
-    #tech-multiplier {
-        padding: 6rem 4%;
-        min-height: 50vh;
-    }
-
-    .calculator-container {
-        max-width: 800px;
-        padding: 2.5rem 2rem;
-    }
-
-    .calculator-grid {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
-    }
-
-    .search-bar, .country-select, .year-input {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-    }
-
-    label {
-        font-size: 1.3rem;
-    }
-
-    .calc-btn {
-        font-size: 1.4rem;
-        padding: 1.2rem 3rem;
-        margin: 1.8rem auto 0;
-    }
-
-    .result-text, .result-list li {
-        font-size: 1.4rem;
-        line-height: 1.8;
-    }
-
-    .result-heading {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 768px) {
-    #tech-multiplier {
-        padding: 5rem 3%;
-        min-height: 50vh;
-    }
-
-    .calculator-container {
-        max-width: 700px;
-        padding: 2rem 1.5rem;
-        border-radius: 25px;
-    }
-
-    .calculator-grid {
-        gap: 1.5rem;
-    }
-
-    .search-bar, .country-select, .year-input {
-        font-size: 1.1rem;
-        padding: 0.9rem 1.8rem;
-    }
-
-    label {
-        font-size: 1.2rem;
-    }
-
-    .calc-btn {
-        font-size: 1.3rem;
-        padding: 1rem 2.5rem;
-        margin: 1.5rem auto 0;
-    }
-
-    .result-text, .result-list li {
-        font-size: 1.3rem;
-        line-height: 1.6;
-    }
-
-    .result-heading {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    #tech-multiplier {
-        padding: 4rem 2%;
-        min-height: 50vh;
-    }
-
-    .calculator-container {
-        max-width: 100%;
-        padding: 1.5rem 1rem;
-        border-radius: 20px;
-    }
-
-    .search-bar, .country-select, .year-input {
-        font-size: 1rem;
-        padding: 0.8rem 1.5rem;
-    }
-
-    label {
-        font-size: 1.1rem;
-    }
-
-    .calc-btn {
-        font-size: 1.2rem;
-        padding: 0.9rem 2rem;
-        margin: 1.2rem auto 0;
-    }
-
-    .result-text, .result-list li {
-        font-size: 1.2rem;
-        line-height: 1.5;
-    }
-
-    .result-heading {
-        font-size: 1.4rem;
     }
 }
