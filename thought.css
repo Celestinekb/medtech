@@ -1,7 +1,7 @@
-/* Section styling with a futuristic gradient background */
+
 .content-section1 {
-    background: linear-gradient(135deg, #1a1a1a, #000000);
-    padding: 50px 0;
+    background: var(--dark-gradient);
+    padding: 10rem 5%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,89 +15,133 @@
     padding: 0 20px;
 }
 
-/* Title with a neon glow effect */
+/* Title with a gradient text effect and animation */
 .section-title1 {
-    font-size: 2.5rem;
-    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 3rem;
     text-align: center;
-    margin-bottom: 30px;
-    text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+    margin-bottom: 2rem;
+    background: var(--light-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite;
 }
 
-/* Container for carousel and controls */
+/* Container for carousel and controls with a semi-transparent background */
 .thoughts-container {
     position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Carousel layout with smooth transitions */
+/* Carousel layout with smooth transitions and shadow */
 .thoughts-carousel {
     display: flex;
     overflow-x: hidden;
     gap: 20px;
     transition: transform 0.5s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Individual thought card styling */
+/* Individual thought card styling with hover effects */
 .thought-card {
     flex: 0 0 300px;
-    background: #2a2a2a;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+    position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    box-shadow: 0 0 0 rgba(0, 243, 255, 0);
 }
 
-/* Hover effect for cards */
 .thought-card:hover {
-    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--primary-color);
 }
 
-/* Image styling within cards */
+.thought-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--light-gradient);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+.thought-card:hover::before {
+    opacity: 0.2;
+}
+
+/* Image styling within cards with grayscale-to-color transition */
 .thought-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s, transform 0.3s;
 }
 
-/* Content area within cards */
+.thought-card:hover .thought-image {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* Content area within cards with brand font */
 .catchy-content {
     padding: 20px;
     text-align: center;
+    font-family: var(--text-font);
 }
 
-/* Catchy text with neon color */
+/* Catchy text with gradient effect */
 .catchy-text {
+    font-family: var(--title-font);
     font-size: 1.5rem;
-    color: #00f3ff;
+    background: var(--light-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
 }
 
-/* Teaser text styling */
+/* Teaser text styling with slightly dimmed white */
 .teaser-text {
+    font-family: var(--text-font);
     font-size: 1rem;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 15px;
 }
 
-/* Learn More button styling */
+/* Learn More button styling with rounded corners and hover effects */
 .learn-more-btn {
     display: inline-block;
-    padding: 10px 20px;
-    background: #00f3ff;
-    color: #000000;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.3s ease;
+    font-family: var(--text-font);
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Hover effect for Learn More button */
 .learn-more-btn:hover {
-    background: #ffffff;
+    background: var(--accent-color);
     transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-/* Navigation controls */
+/* Navigation controls centered with spacing */
 .carousel-controls {
     display: flex;
     justify-content: center;
@@ -105,22 +149,21 @@
     gap: 40px;
 }
 
-/* Button styling */
+/* Button styling with brand colors */
 .prev-btn, .next-btn {
     background: none;
     border: none;
     font-size: 2rem;
-    color: #00f3ff;
+    color: var(--primary-color);
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
-/* Button hover effect */
 .prev-btn:hover, .next-btn:hover {
-    color: #ffffff;
+    color: var(--accent-color);
 }
 
-/* Responsive adjustments for mobile */
+/* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
     .thoughts-carousel {
         overflow-x: scroll;
@@ -130,7 +173,7 @@
         flex: 0 0 80vw;
         scroll-snap-align: center;
     }
-    .section-title {
+    .section-title1 {
         font-size: 2rem;
     }
 }
