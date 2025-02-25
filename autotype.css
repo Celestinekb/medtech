@@ -7,20 +7,17 @@ header {
 }
 
 .autotype-section {
-    height: 100vh; /* Full viewport height for prominence */
+    height: 100vh; /* Takes up the full viewport height */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--dark-gradient); /* Dark background for contrast */
-    color: var(--primary-color); /* Light text color */
+    justify-content: center; /* Centers the container horizontally */
+    align-items: center; /* Centers the container vertically */
 }
 
 .autotype-container {
-    font-family: var(--text-font); /* 'Roboto Mono' for a techy feel */
-    font-size: 1.5rem; /* Readable size */
-    font-weight: 700; /* Bold text as requested */
-    max-width: 800px; /* Controls text wrapping */
-    margin: 0 auto; /* Centers the container */
+    font-size: 1.5rem;
+    font-weight: 700; /* Bold text */
+    max-width: 800px; /* Limits the width for readability */
+    text-align: center; /* Centers the text inside the container */
 }
 
 .autotype-text {
