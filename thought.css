@@ -1,4 +1,3 @@
-
 .content-section1 {
     background: var(--dark-gradient);
     padding: 10rem 5%;
@@ -12,6 +11,7 @@
 .section-container {
     max-width: 1200px;
     width: 100%;
+    padding: 0 20px;
 }
 
 /* Title with a gradient text effect and animation */
@@ -162,17 +162,61 @@
     color: var(--accent-color);
 }
 
-/* Responsive adjustments for mobile screens */
+/* Responsive adjustments for mobile */
 @media (max-width: 768px) {
+    .content-section1 {
+        padding: 8rem 3%;
+    }
+
+    .section-container {
+        padding: 0 15px;
+    }
+
+    .section-title1 {
+        font-size: 2rem;
+    }
+
+    .thoughts-container {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
     .thoughts-carousel {
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        gap: 15px;
     }
+
     .thought-card {
-        flex: 0 0 80vw;
+        flex: 0 0 80vw; /* Adjust to fit within 80% of viewport width for readability */
         scroll-snap-align: center;
+        padding: 1rem;
+        border-radius: 10px;
     }
-    .section-title1 {
-        font-size: 2rem;
+
+    .thought-image {
+        height: 150px; /* Reduce image height for mobile */
+    }
+
+    .catchy-text {
+        font-size: 1.2rem;
+    }
+
+    .teaser-text {
+        font-size: 0.9rem;
+    }
+
+    .learn-more-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .carousel-controls {
+        margin-top: 15px;
+        gap: 20px;
+    }
+
+    .prev-btn, .next-btn {
+        font-size: 1.5rem;
     }
 }
