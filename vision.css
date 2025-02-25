@@ -1,12 +1,12 @@
 /* About Section Styling */
 .content-section#about {
+    background: var(--dark-gradient);
     padding: 10rem 5%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--dark-gradient);
 }
 
 /* About Content Container */
@@ -77,5 +77,13 @@
     .vision-phrase {
         font-size: 1rem;
         padding: 0.8rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
+
+.vision-phrase.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 }
