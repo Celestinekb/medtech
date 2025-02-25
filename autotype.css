@@ -1,25 +1,36 @@
-.autotype-container {
+.autotype-section {
+    height: 100vh; /* Full viewport height for prominence */
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-top: 2rem;
-    min-height: 2rem; /* Prevents layout shift before typing starts */
+    background: var(--dark-gradient); /* Dark background for contrast */
+    color: var(--primary-color); /* Light text color */
+}
+
+.autotype-container {
+    font-family: var(--text-font); /* 'Roboto Mono' for a techy feel */
+    font-size: 1.5rem; /* Readable size */
+    font-weight: 700; /* Bold text as requested */
+    max-width: 800px; /* Controls text wrapping */
+    margin: 0 auto; /* Centers the container */
+}
+
+.autotype-text {
+    white-space: pre-wrap; /* Ensures proper wrapping with spaces */
 }
 
 .cursor {
+    display: inline-block;
     font-size: 1.5rem;
-    animation: blink 0.7s infinite;
-}
-
-.cursor.solid {
-    animation: none;
-    opacity: 1;
+    animation: blink 0.7s infinite; /* Blinking effect */
 }
 
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+.cursor.stopped {
+    animation: none;
+    opacity: 1; /* Solid cursor when typing completes */
 }
