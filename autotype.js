@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.querySelector('.cursor');
     const fullText = "Hey there! I'm Celestine, a passionate innovator on a mission to simplify lives with tech & medicine. Welcome to my digital space—stay, explore, and let’s build something amazing together! 💡✨";
     let index = 0;
-    const typingSpeed = 30; // 30ms per character
+    const typingSpeed = 20; // 30ms per character
 
     function type() {
         if (index < fullText.length) {
@@ -15,5 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    setTimeout(type, 500); // Starts typing after a 0.5s delay
+    setTimeout(type, 2000); // Starts typing after a 2s delay
 });
