@@ -1,3 +1,11 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures header stays on top */
+}
+
 .autotype-section {
     height: 100vh; /* Full viewport height for prominence */
     display: flex;
@@ -9,7 +17,7 @@
 
 .autotype-container {
     font-family: var(--text-font); /* 'Roboto Mono' for a techy feel */
-    font-size: 1.5rem; /* Readable size */
+    font-size: 2.5rem; /* Readable size */
     font-weight: 700; /* Bold text as requested */
     max-width: 800px; /* Controls text wrapping */
     margin: 0 auto; /* Centers the container */
