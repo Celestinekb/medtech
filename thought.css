@@ -246,3 +246,12 @@
         font-size: 1.5rem;
     }
 }
+
+.thoughts-carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
