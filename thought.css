@@ -25,6 +25,32 @@
     -webkit-text-fill-color: transparent;
     animation: shine 3s infinite;
 }
+.carousel-controls {
+    display: none; /* Hidden by default on desktop */
+    justify-content: center;
+    margin-top: 20px;
+    gap: 40px;
+}
+
+.prev-btn, .next-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    color: var(--accent-color);
+}
+
+/* Show controls on mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .carousel-controls {
+        display: flex;
+    }
+}
 
 /* Container for carousel and controls with a semi-transparent background */
 .thoughts-container {
