@@ -3,29 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const cards = document.querySelectorAll('.thought-card');
-    let currentIndex = 0;
+    let scrollPosition = 0;
     let autoplayInterval = null;
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     const cardWidth = cards[0].offsetWidth + 20; // Include 20px gap from CSS
     const totalCards = cards.length;
 
-    // Smoothly slide to a specific index
-    function slideToIndex(index) {
-        currentIndex = (index + totalCards) % totalCards; // Ensure looping
-        carousel.style.transition = 'transform 0.5s ease-in-out'; // Smooth sliding effect
-        carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        
-        // Reset transition after animation to maintain manual scrolling
-        setTimeout(() => {
-            carousel.style.transition = ''; // Remove transition for manual scrolling
-        }, 500); // Match the transition duration
-    }
-
-    // Autoplay function for mobile with a futuristic, sliding effect
+    // Autoplay function for mobile with smooth scrolling
     function startAutoplay() {
         if (isMobile && !autoplayInterval) {
             autoplayInterval = setInterval(() => {
-                slideToIndex(currentIndex + 1); // Slide to next card
+                scrollPosition += cardWidth;
+                if (scrollPosition >= (totalCards - 1) * cardWidth) {
+                    scrollPosition = 0; // Loop back to start
+                }
+                carousel.scrollLeft = scrollPosition;
                 // Add a subtle neon glow effect during transition for a futuristic feel
                 carousel.style.boxShadow = `0 0 20px ${getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim()}, 0 0 40px ${getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim()}`;
                 setTimeout(() => {
@@ -43,15 +35,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Navigation controls with smooth sliding
+    // Navigation controls with smooth scrolling
     prevBtn.addEventListener('click', () => {
         stopAutoplay(); // Stop autoplay on manual navigation
-        slideToIndex(currentIndex - 1);
+        scrollPosition -= cardWidth;
+        if (scrollPosition < 0) {
+            scrollPosition = (totalCards - 1) * cardWidth; // Loop to last card
+        }
+        carousel.scrollLeft = scrollPosition;
+        // Ensure alignment with scroll-snap
+        setTimeout(() => {
+            carousel.scrollLeft = scrollPosition; // Double-check alignment
+        }, 100);
     });
 
     nextBtn.addEventListener('click', () => {
         stopAutoplay(); // Stop autoplay on manual navigation
-        slideToIndex(currentIndex + 1);
+        scrollPosition += cardWidth;
+        if (scrollPosition >= totalCards * cardWidth) {
+            scrollPosition = 0; // Loop back to first card
+        }
+        carousel.scrollLeft = scrollPosition;
+        // Ensure alignment with scroll-snap
+        setTimeout(() => {
+            carousel.scrollLeft = scrollPosition; // Double-check alignment
+        }, 100);
     });
 
     // Pause autoplay on hover/touch (for mobile)
@@ -62,9 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start autoplay on mobile load
     if (isMobile) {
-        // Initialize carousel with transform for smooth sliding
-        carousel.style.display = 'flex'; // Ensure flex display for transform
-        carousel.style.transform = `translateX(0)`; // Start at the first card
+        carousel.scrollLeft = 0; // Reset to start on mobile load
         startAutoplay();
     }
 
@@ -74,15 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (newIsMobile && !isMobile) {
             // Switched to mobile, start autoplay
             isMobile = true;
-            carousel.style.display = 'flex';
-            carousel.style.transform = `translateX(0)`; // Reset position
+            carousel.scrollLeft = 0; // Reset position
             startAutoplay();
         } else if (!newIsMobile && isMobile) {
-            // Switched to desktop, stop autoplay and reset
+            // Switched to desktop, stop autoplay
             isMobile = false;
             stopAutoplay();
-            carousel.style.transform = ''; // Remove transform for desktop scrolling
-            carousel.style.transition = ''; // Remove transition for desktop
+            carousel.scrollLeft = 0; // Reset for desktop scrolling
         }
     });
 
@@ -90,8 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.addEventListener('scroll', () => {
         if (!isMobile) return; // Only adjust on mobile if needed
         stopAutoplay(); // Pause autoplay on manual scroll
-        const scrollLeft = carousel.scrollLeft;
-        currentIndex = Math.round(scrollLeft / cardWidth);
-        setTimeout(startAutoplay, 3000); // Resume autoplay after 3 seconds
+        scrollPosition = carousel.scrollLeft;
+        const currentIndex = Math.round(scrollPosition / cardWidth);
+        scrollPosition = currentIndex * cardWidth; // Snap to nearest card
+        setTimeout(() => {
+            carousel.scrollLeft = scrollPosition; // Ensure proper alignment
+            startAutoplay(); // Resume autoplay after 3 seconds
+        }, 3000);
     });
 });
